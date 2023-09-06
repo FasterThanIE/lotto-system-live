@@ -49,7 +49,10 @@
         <h1>Moje kartice</h1>
 
         @foreach(\Illuminate\Support\Facades\Auth::user()->cards as $creditCard)
-            <p>{{ $creditCard->card_number }} - {{ $creditCard->cvv }} - {{ $creditCard->expiry }}</p>
+            <div class="d-flex">
+                <p>{{ $creditCard->card_number }} - {{ $creditCard->cvv }} - {{ $creditCard->expiry }}</p>
+                <a class="btn btn-danger" href="{{ route("cards.delete", ['card' => $creditCard->id]) }}">DELETE</a>
+            </div>
         @endforeach
 
         <div>

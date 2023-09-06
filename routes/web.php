@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreditCardsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,9 @@ Route::middleware("auth")->group(function() {
     });
 
 
-    Route::controller(\App\Http\Controllers\CreditCardsController::class)->prefix("/credit-cards")->group(function() {
+    Route::controller(CreditCardsController::class)->prefix("/credit-cards")->group(function() {
         Route::post("/save", "save")->name("cards.save");
+        Route::get("/delete/{card}", "delete")->name("cards.delete"); // credit-cards/delete/5
     });
 
 

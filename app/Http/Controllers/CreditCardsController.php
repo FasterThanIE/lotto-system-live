@@ -24,4 +24,18 @@ class CreditCardsController extends Controller
 
         return redirect()->back();
     }
+
+
+    // SELECT * FROM credit_cards WHERE id = 5 -> /credit-cards/delete/5
+    public function delete(CreditCards $card)
+    {
+        if($card->user_id !== Auth::id())
+        {
+            return redirect()->back();
+        }
+
+        $card->delete();
+
+        return redirect()->back();
+    }
 }
