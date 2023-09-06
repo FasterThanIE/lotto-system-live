@@ -34,4 +34,49 @@
         <button class="btn btn-outline-primary mt-3">Snimi</button>
     </form>
 
+    <form class="container mt-5 mb-5" method="POST" action="{{ route("cards.save") }}">
+
+        {{ csrf_field() }}
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+
+        <h1>Moje kartice</h1>
+        <div>
+            <label for="card_number" class="form-label">Card number</label>
+            <input class="form-control" name="card_number" type="number" id="card_number" value="{{ old("card_number") }}">
+        </div>
+
+        <div class="mt-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input class="form-control" name="cvv" type="text" id="cvv" value="{{ old("cvv") }}">
+        </div>
+
+        <div class="mt-3">
+
+            <label>Mesec isteka</label>
+            <select class="form-select" name="expiry_month">
+                @for($i = 1; $i <= 12; $i++)
+                    <option>{{ $i }}</option>
+                @endfor
+            </select>
+        </div>
+
+        <div class="mt-3">
+            <label>Godina isteka</label>
+            <select class="form-select" name="expiry_year">
+                @for($i = 0; $i <= 5; $i++)
+                    <option>{{ date('Y')+$i }}</option>
+                @endfor
+            </select>
+        </div>
+
+        <button class="btn btn-outline-primary mt-3">Snimi</button>
+    </form>
+
 @endsection
