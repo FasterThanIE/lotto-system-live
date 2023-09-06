@@ -1,0 +1,13 @@
+Agenda:
+
+- Dodavanje kreditnih kartica
+- Dodavanje novca (uplate)
+
+- Pregled transakcija
+    - Transakcije
+    - pregled u adminu
+
+- CRUD za admin sistem
+    - Dodavanje korisnika, edit, update..
+
+- Edit...
