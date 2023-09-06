@@ -47,6 +47,11 @@
         @endif
 
         <h1>Moje kartice</h1>
+
+        @foreach(\Illuminate\Support\Facades\Auth::user()->cards as $creditCard)
+            <p>{{ $creditCard->card_number }} - {{ $creditCard->cvv }} - {{ $creditCard->expiry }}</p>
+        @endforeach
+
         <div>
             <label for="card_number" class="form-label">Card number</label>
             <input class="form-control" name="card_number" type="number" id="card_number" value="{{ old("card_number") }}">
