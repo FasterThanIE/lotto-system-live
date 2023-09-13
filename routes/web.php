@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreditCardsController;
+use App\Http\Controllers\CreditsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,12 @@ Route::middleware("auth")->group(function() {
     // prefixiranje: /profile
     Route::controller(ProfileController::class)->prefix("/profile")->group(function (){
         Route::view("/", "pages.profile");
+        Route::view("/add-credits", "pages.add_credits")->name("profile.add_credits");
         Route::post("/save", "save")->name("profile.save");
+    });
+
+    Route::controller(CreditsController::class)->prefix("/credits")->group(function () {
+        Route::post("/add", "add")->name("credits.add");
     });
 
 

@@ -14,6 +14,11 @@
             </div>
         @endif
 
+        <div class="mb-2">
+            <p>Stanje kredita: {{ auth()->user()->credits ?? 0 }}</p>
+            <a href="{{ route("profile.add_credits") }}" class="btn btn-outline-primary">Dopuni kredite</a>
+        </div>
+
 
         <h1>Moj nalog</h1>
         <div>
