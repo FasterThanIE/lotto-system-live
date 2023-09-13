@@ -2,15 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Authenticate;
 use App\Http\Requests\AddCreditsRequest;
+use App\Models\Transactions;
+use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreditsController extends Controller
 {
+
     public function add(AddCreditsRequest $request): RedirectResponse
     {
-        $creditsPrice = $request->credits*env("CREDITS_VALUE_RSD");
 
+        $user = \auth()->user();
+        $currentCredits = $user->credits ?? 0;
+        $user->credits = $currentCredits+$request->get("credits");
+        $user->save();
+
+        Transactions::create([
+            'card_id' => $request->get("credit_card"),
+            'amount' => $request->get("credits"),
+            'price' => env("CREDITS_VALUE_RSD"),
+            'total_price' => $request->credits*env("CREDITS_VALUE_RSD"),
+            'status' => Transactions::STATUS_ACTIVE,
+        ]);
+
+        return redirect()->back();
     }
 }
