@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Rules\User\EmailNotTaken;
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserAccountSaveRequest extends FormRequest

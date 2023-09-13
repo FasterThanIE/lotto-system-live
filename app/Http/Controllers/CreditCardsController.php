@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreditsCards\NewCardRequest;
 use App\Models\CreditCards;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CreditCardsController extends Controller

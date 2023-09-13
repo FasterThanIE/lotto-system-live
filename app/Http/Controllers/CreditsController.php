@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\Authenticate;
 use App\Http\Requests\AddCreditsRequest;
 use App\Models\Transactions;
-use App\Models\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CreditsController extends Controller
 {
