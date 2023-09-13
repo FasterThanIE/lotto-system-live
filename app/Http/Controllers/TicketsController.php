@@ -13,7 +13,7 @@ class TicketsController extends Controller
     {
         Tickets::create([
             "user_id" => auth()->user()->id,
-            "numbers" => implode(" ", $request->get("numbers")),
+            "numbers" => implode(",", $request->get("numbers")),
             "price" => env("TICKET_PRICE_CREDITS")
         ]);
 

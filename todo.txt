@@ -1,0 +1,10 @@
+* Skidanje kredita sa racuna kada se kupi ticket
+* Provera kredita kada se kupuje ticket
+* Loto sistem (fond za trenutnu igru) - 1 igra nedeljno
+* Nagradjivanje
+* Admin - ako stignemo
+* Thank you stranice (ili samo poruke):
+    * Kada se doda kartica
+    * Kada se kupe krediti
+    * Kada se kupi ticket (napisati i kada je sledece izvlacenje)
+
