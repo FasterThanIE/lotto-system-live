@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreditCardsController;
 use App\Http\Controllers\CreditsController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::view("/", "pages.home");
 
 Route::middleware("auth")->group(function() {
 
+    Route::view("/loto", "pages.loto")->name("loto.index");
+
     // prefixiranje: /profile
     Route::controller(ProfileController::class)->prefix("/profile")->group(function (){
         Route::view("/", "pages.profile");
@@ -35,6 +38,11 @@ Route::middleware("auth")->group(function() {
     Route::controller(CreditCardsController::class)->prefix("/credit-cards")->group(function() {
         Route::post("/save", "save")->name("cards.save");
         Route::get("/delete/{card}", "delete")->name("cards.delete"); // credit-cards/delete/5
+    });
+
+
+    Route::controller(TicketsController::class)->prefix("loto")->group(function() {
+        Route::post("/buy", "buy")->name("loto.buy");
     });
 
 

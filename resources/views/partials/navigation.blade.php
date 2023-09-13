@@ -10,6 +10,9 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route("loto.index") }}">Loto</a>
+                </li>
+                <li class="nav-item">
                     @if(\Illuminate\Support\Facades\Auth::check())
                         <a class="nav-link" href="/profile">Moj nalog</a>
                     @else
